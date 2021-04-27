@@ -46,4 +46,42 @@ function SumValues()
     document.res.sysint.value = sysint.toFixed(2);
     document.res.mod.value = mod.toFixed(2);
 
+    var element = document.getElementById("moyennes");
+    var gif, rennes, metz;
+    gif = (pil + veh + lec + lum + sysen + con + syscomp)/7;
+    rennes = (nav + sma + ass)/3;
+    metz = (int + sysint+mod)/3;
+
+    gif = gif.toFixed(2);
+    rennes = rennes.toFixed(2);
+    metz = metz.toFixed(2);
+
+    var lab = document.createElement("label");
+    var text = document.createTextNode("Moyennes :");
+    lab.appendChild(text);
+    element.appendChild(lab);
+
+    var ptag = document.createElement("p");
+    var text = document.createTextNode("Gif : "+gif.toString());
+    ptag.appendChild(text);
+    if (gif <= 11) {ptag.style.color = "#AE1100"};
+    if (11 < gif && gif <= 13) {ptag.style.color = "#f77f00"};
+    if (gif > 13) {ptag.style.color = "#90be6d"}
+    element.appendChild(ptag);
+
+    var ptag = document.createElement("p");
+    var text = document.createTextNode("Rennes : "+rennes.toString());
+    ptag.appendChild(text);
+    if (rennes <= 11) {ptag.style.color = "#AE1100"};
+    if (11 < rennes && rennes <= 13) {ptag.style.color = "#f77f00"};
+    if (rennes > 13) {ptag.style.color = "#90be6d"}
+    element.appendChild(ptag);
+
+    var ptag = document.createElement("p");
+    var text = document.createTextNode("Metz : "+metz.toString());
+    ptag.appendChild(text);
+    if (metz <= 11) {ptag.style.color = "#AE1100"};
+    if (11 < metz && metz <= 13) {ptag.style.color = "#f77f00"};
+    if (metz > 13) {ptag.style.color = "#90be6d"}
+    element.appendChild(ptag);
 }
